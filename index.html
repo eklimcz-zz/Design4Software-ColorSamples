@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>	
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+	<link rel="shortcut icon" href="favicon.ico"/>  
+  <meta name="viewport" content="width=device-width" />
+  <title>Design for Software - Coding with Color</title>
+  <link rel="stylesheet" href="stylesheets/normalize.css" />  
+  <link rel="stylesheet" href="stylesheets/app.css" />  
+  <link rel="stylesheet" href="stylesheets/shCoreDefault.css" />    
+  <script src="javascripts/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+<div id="root" class="container">
+
+	<div class="row">
+		<header class="large-12 columns">
+			<h4 ><small>Design for Software</small></h4>
+			<h1>Coding with color</h1>			
+			<h5 class="subheader">Programmatically generating color palettes can give you some options when using colors in your   </h5>
+			<hr />
+		</header>
+	</div>
+
+	<div class="row">
+		<div class="large-8 columns">
+			<article>
+				<h3>Monochromatic color palettes </h3>
+				<p>Monochromatic color schemes are perfectly suited for data visualizations. A monochromatic color scheme focuses on one base color with varied intensity and lightness to create shades and tints that share a common hue.  </p>			
+				<p>In this sample we're using HSL to step the lightness value of a base color which gives us. This is one option for stretching a limited color palette and avoiding those horrific default colors. Get the full source on <a href="https://github.com/eklimcz">Git Hub</a>. </p>							
+			</article>
+		</div>
+	
+		<aside class="large-3 columns">
+			<h3><small>COLOR PALETTE</small></h3>
+			<div  id="swatchHolder" class="holder"></div>			
+			<div class="note">
+				<small id="baseColorTxt"></small>
+				<div class="smallSwatch"></div>
+			</div>
+
+			<a id="colorChangeBtn" class="button small radius">Change Color</a>
+
+		</aside>
+	</div>
+		<div class="row">
+
+		<div class="large-4 columns">
+			<canvas id="chart1" width="250" height="250"></canvas>
+		</div>
+		<div class="large-4 columns">
+		   <canvas id="chart2" width="250" height="250"></canvas>
+		</div>
+		<div class="large-4 columns">
+			  <canvas id="chart3" width="250" height="250"></canvas>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="large-3 large-centered columns">
+			<h5><small>Charts by Nick Downie's <a href="http://www.chartjs.org/">Chart.js</a></small></h5>
+		</div>
+		<div class="large-12 columns">
+			<hr />
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-8 columns">
+			<article>
+				<h3>Average color algorithm </h3>
+				<p>This technique won’t necessarily generate a great color palette, but it’s a fun little trick. The idea is to dynamically produce a color based from an element of interest. Once you have the average color, you can use it to dynamically accent the UI, tint the background, or dynamically color text. A similar effect can be seen in the latest version of <a href="#" data-dropdown="drop2">iTunes</a>. Grab the full source on <a href="github.com/eklimcz">Git Hub</a></p>						
+				<div id="drop2" class="f-dropdown medium content" data-dropdown-content>
+					
+					<img src="img/itunes.png" />
+				</div>
+			</article>		
+		</div>  
+	</div>
+	<div class="row">
+		<div class="large-8 columns">
+			<h3><small>LIVE DEMO</small></h3>
+		</div>
+	</div>
+
+	<div id="avgColorSection" class="row">
+		<div class="large-3 columns">
+			<div id="container1" class="container">
+				<canvas class="avgCan" id="can1" width="150" height="150"></canvas>
+			</div>
+		</div>
+		<div class="large-3 columns">
+			<div id="container2" class="container">
+				<canvas class="avgCan" id="can2" width="150" height="150"></canvas>
+			</div>
+		</div>
+		<div class="large-3 columns">
+			<div id="container3" class="container">
+				<canvas class="avgCan" id="can3" width="150" height="150"></canvas>
+			</div>
+		</div>
+		<div class="large-3 columns">
+			<div id="container4" class="container">
+				<canvas class="avgCan" id="can4" width="150" height="150"></canvas>
+			</div>
+		</div>		
+		
+	</div>
+	
+	<div class="row">
+		<div class="large-8 columns">
+
+			<div class="section-container accordion" data-section="accordion">
+				<section class="section">
+				<p class="title"><a href="#">See Code</a></p>
+				<div class="content">
+				<pre class="brush: js;">
+					
+					function getColorFromCanvas(canvas){
+				
+						//grab reference to canvas
+						var ctx = canvas.getContext('2d');
+						var w = canvas.width;
+						var h = canvas.height;
+						
+						//get pixel data
+						var idata = ctx.getImageData(0,0,w,h);
+					    var data = idata.data;
+					
+					    var tr = 0;
+					    var tg = 0;
+					    var tb = 0;						
+						var avgColor;
+					
+						
+					  	for(var i = 0; i < data.length; i+=4) {     
+					    
+						    var r = data[i];
+						    var g = data[i+1];
+						    var b = data[i+2];
+							
+							//add up the color values			    
+							tr += r;
+							tg += g;
+							tb += b;
+									
+					 	}
+					 	
+						//compute the average for r,g,b
+					    var avgR = Math.floor((tr / ( w * h)));
+					    var avgG = Math.floor((tg / (w * h)));
+					    var avgB = Math.floor((tb / (w * h)));
+						
+						avgColor = {
+							'r': avgR,
+							'g': avgG,
+							'b': avgB
+						};
+					
+					return avgColor;
+				};
+
+				</pre>		
+				</div>
+				</section>			
+			</div>
+								
+		</div>		
+	</div>
+
+	
+
+</div>
+
+<div id="footer">
+	
+	 <small>© 2013, DESIGN FOR SOFTWARE. ALL RIGHTS RESERVED.</small>
+</div>
+	
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="javascripts/vendor/shCore.js"></script>
+  <script src="javascripts/vendor/shBrushJScript.js"></script>
+  <script src="javascripts/vendor/PXLoader.js"></script>		  
+  <script src="javascripts/vendor/PXLoaderImage.js"></script>		    
+  <script src="javascripts/vendor/chart.min.js"></script>		  
+  <script src="javascripts/foundation/foundation.min.js"></script>		
+  <script src="javascripts/app/util.js"></script>	
+  <script src="javascripts/app/app.js"></script>	
+
+  
+  <script>
+    $(document).foundation();
+    SyntaxHighlighter.all();
+  </script>
+	</body>
+</html>

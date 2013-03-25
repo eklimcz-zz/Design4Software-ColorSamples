@@ -1,0 +1,65 @@
+application: d4s-color
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+# site root
+- url: /
+  static_files: index.html
+  upload: index.html
+
+#css
+- url: /stylesheets/(.*\.css)
+  mime_type: text/css
+  static_files: stylesheets/\1
+  upload: stylesheets/(.*\.css)
+
+# image files
+- url: /img/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: img/\1
+  upload: img/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+#javascript
+- url: /javascripts/(.*\.js)
+  mime_type: text/javascript
+  static_files: javascripts/\1
+  upload: javascripts/(.*\.js)
+
+#xml
+- url: /img/(.*\.xml)
+  mime_type: application/xml
+  static_files: img/\1
+  upload: img/(.*\.xml)
+
+#fonts
+- url: /fonts/(.*\.woff)
+  mime_type: application/x-font-woff
+  static_files: fonts/\1
+  upload: fonts/(.*\.woff)
+
+- url: /fonts/(.*\.ttf)
+  mime_type: font/truetype
+  static_files: fonts/\1
+  upload: fonts/(.*\.ttf)
+
+- url: /fonts/(.*\.otf)
+  mime_type: font/opentype
+  static_files: fonts/\1
+  upload: fonts/(.*\.otf)
+
+- url: /fonts/(.*\.eot)
+  mime_type: application/vnd.ms-fontobject
+  static_files: fonts/\1
+  upload: fonts/(.*\.eot)
+
+#svg
+- url: /img/(.*\.svg)
+  mime_type: image/svg+xml
+  static_files: img/\1
+  upload: img/(.*\.svg)
