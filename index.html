@@ -9,6 +9,19 @@
 	<link rel="shortcut icon" href="favicon.ico"/>  
   <meta name="viewport" content="width=device-width" />
   <title>Design for Software - Coding with Color</title>
+ 
+	 <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-35139465-3', 'design4software.com');
+	  ga('send', 'pageview');
+	
+</script>
+ 
+ 
   <link rel="stylesheet" href="stylesheets/normalize.css" />  
   <link rel="stylesheet" href="stylesheets/app.css" />  
   <link rel="stylesheet" href="stylesheets/shCoreDefault.css" />    
@@ -23,7 +36,7 @@
 		<header class="large-12 columns">
 			<h4 ><small>Design for Software</small></h4>
 			<h1>Coding with color</h1>			
-			<h5 class="subheader">Programmatically generating color palettes can give you some options when using colors in your   </h5>
+			<h3 class="subheader">Programmatic uses of color </h3>
 			<hr />
 		</header>
 	</div>
@@ -33,7 +46,7 @@
 			<article>
 				<h3>Monochromatic color palettes </h3>
 				<p>Monochromatic color schemes are perfectly suited for data visualizations. A monochromatic color scheme focuses on one base color with varied intensity and lightness to create shades and tints that share a common hue.  </p>			
-				<p>In this sample we're using HSL to step the lightness value of a base color which gives us. This is one option for stretching a limited color palette and avoiding those horrific default colors. Get the full source on <a href="https://github.com/eklimcz">Git Hub</a>. </p>							
+				<p>In this sample we're using HSL to step the lightness value of a base color which gives us. This is one option for stretching a limited color palette and avoiding those horrific default colors. Get the full source on <a href="http://github.com/eklimcz/Design4Software-ColorSamples">Git Hub</a>. </p>							
 			</article>
 		</div>
 	
@@ -74,7 +87,7 @@
 		<div class="large-8 columns">
 			<article>
 				<h3>Average color algorithm </h3>
-				<p>This technique won’t necessarily generate a great color palette, but it’s a fun little trick. The idea is to dynamically produce a color based from an element of interest. Once you have the average color, you can use it to dynamically accent the UI, tint the background, or dynamically color text. A similar effect can be seen in the latest version of <a href="#" data-dropdown="drop2">iTunes</a>. Grab the full source on <a href="github.com/eklimcz">Git Hub</a></p>						
+				<p>The demo below computes the average color from a photograph. The idea is to dynamically produce a color based from an element of interest. Once you have the average color, you can use it to dynamically accent the UI, tint the background, or dynamically color text. A similar effect can be seen in the latest version of <a href="#" data-dropdown="drop2">iTunes</a>. Grab the full source on <a href="http://github.com/eklimcz/Design4Software-ColorSamples">Git Hub</a></p>						
 				<div id="drop2" class="f-dropdown medium content" data-dropdown-content>
 					
 					<img src="img/itunes.png" />
@@ -190,8 +203,6 @@
   </script>
   <script src="javascripts/vendor/shCore.js"></script>
   <script src="javascripts/vendor/shBrushJScript.js"></script>
-  <script src="javascripts/vendor/PXLoader.js"></script>		  
-  <script src="javascripts/vendor/PXLoaderImage.js"></script>		    
   <script src="javascripts/vendor/chart.min.js"></script>		  
   <script src="javascripts/foundation/foundation.min.js"></script>		
   <script src="javascripts/app/util.js"></script>	
@@ -201,6 +212,6 @@
   <script>
     $(document).foundation();
     SyntaxHighlighter.all();
-  </script>
+    </script>
 	</body>
 </html>

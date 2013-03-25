@@ -12,6 +12,12 @@ $(document).ready(function () {
     $("#colorChangeBtn").on('click', function () {
         generateCharts();
     });
+    
+    window.onpopstate = function(e){
+    if(e.state){
+        console.log('here');
+            }	}
+//    window.history.pushState("test", "Design4Software - Coding with Color", "color.design4software.com");
 
     function generateCharts() {
 
