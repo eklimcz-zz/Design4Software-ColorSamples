@@ -9,7 +9,7 @@ These samples demonstrate ways to programmatically generate color palettes and h
 How do I run the samples?
 -------
 
-This sample code is not meant to be used in any production environment. They are code experiments demonstrating basic functionality That being said, you can follow these basic instructions to run the samples.
+This sample code is not meant to be used in any production environment. They are code experiments demonstrating basic functionality. That being said, you can follow these basic instructions to run the samples.
 
 1.	Ready the code	⁃	You must host the "Find Average Color" sample on a web server before it will render properly. This is due to cross-site domain accessibility issues. 	
 
@@ -28,11 +28,9 @@ Open them, pick them apart, steal what you need, leave what you don't. I spent m
 
 
 Enjoy!
-Erik
-
 
 
 License
 -------
 
-This download pack a
+This download pack and associated materials are available under the [MIT license] (http://opensource.org/licenses/MIT)
